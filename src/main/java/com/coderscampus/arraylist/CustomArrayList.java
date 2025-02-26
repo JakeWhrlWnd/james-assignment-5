@@ -8,6 +8,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(T item) {
 		if (size == items.length) {
 			Object[] newItems = new Object[items.length * 2];
+			// Used the built arraycopy method instead of manually 
 			System.arraycopy(items, 0, newItems, 0, items.length);
 			items = newItems;
 		}
