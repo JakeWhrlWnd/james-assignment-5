@@ -8,9 +8,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(T item) {
 		if (size == items.length) {
 			Object[] newItems = new Object[items.length * 2];
-			for (int i = 0; i < items.length; i++) {
-				newItems[i] = items[i];
-			}
+			System.arraycopy(items, 0, newItems, 0, items.length);
 			items = newItems;
 		}
 		items[size] = item;
@@ -20,25 +18,15 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public int getSize() {
-		int counter = 0;
-
-		for (int i = 0; i < size; i++) {
-			counter = counter + 1;
-		}
-		return counter;
+		return size; // I am already keeping up wth the size of the array
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T get(int index) {
-		T target = null;
-
-		try {
-			if (index >= 0 && index < size) {
-				target = (T) items[index];
-			}
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Your index is out of bounds. Issue -> " + e.getMessage());
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
 		}
-		return target;
+		return (T) items[index];
 	}
 }
