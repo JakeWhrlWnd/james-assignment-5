@@ -19,5 +19,11 @@ public class CustomListApplication {
         for (int i = 0; i < numbers.getSize(); i++) {
             System.out.println(numbers.get(i));
         }
+
+        try {
+            System.out.println(numbers.get(19));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
