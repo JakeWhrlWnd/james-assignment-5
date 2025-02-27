@@ -30,15 +30,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T get(int index) {
-		T target = null;
-
-		try {
-			if (index >= 0 && index < size) {
-				target = (T) items[index];
-			}
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Your index is out of bounds. Issue -> " + e.getMessage());
-		}
-		return target;
+		return (T) items[index];
 	}
 }
