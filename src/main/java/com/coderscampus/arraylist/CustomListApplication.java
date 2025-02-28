@@ -11,17 +11,14 @@ public class CustomListApplication {
         numbers.add(5);
         numbers.add(6);
         numbers.add(7);
-        numbers.add(8);
-        numbers.add(9);
-        numbers.add(10);
-        numbers.add(11);
+
 
         for (int i = 0; i < numbers.getSize(); i++) {
             System.out.println(numbers.get(i));
         }
 
         try {
-            System.out.println(numbers.get(19));
+            System.out.println(numbers.get(8));
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
