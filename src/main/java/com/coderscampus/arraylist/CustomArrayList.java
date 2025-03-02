@@ -8,7 +8,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(T item) {
 		if (size == items.length) {
 			Object[] newItems = new Object[items.length * 2];
-			// Used the built arraycopy method instead of manually 
 			System.arraycopy(items, 0, newItems, 0, items.length);
 			items = newItems;
 		}
@@ -19,15 +18,15 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public int getSize() {
-		return size; // I am already keeping up wth the size of the array
+		return size;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public T get(int index) {
 		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-		}
+			throw new IndexOutOfBoundsException("Oops, looks like the index: " + index + " is out of bounds for the " +
+					"array of size: " + size);		}
 		return (T) items[index];
 	}
 }
