@@ -4,21 +4,18 @@ public class CustomListApplication {
     public static void main(String[] args) {
 
         CustomList<Integer> numbers = new CustomArrayList<>();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(4);
-        numbers.add(5);
-        numbers.add(6);
-        numbers.add(7);
 
+        for (int i = 0; i < 25; i++) {
+            numbers.add(i + 1);
+        }
 
+        System.out.println("Final size: " + numbers.getSize());
         for (int i = 0; i < numbers.getSize(); i++) {
-            System.out.println(numbers.get(i));
+            System.out.println(numbers.get(i) + " ");
         }
 
         try {
-            System.out.println(numbers.get(8));
+            System.out.println(numbers.get(10000));
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }

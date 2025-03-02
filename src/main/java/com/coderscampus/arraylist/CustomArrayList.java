@@ -7,6 +7,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public boolean add(T item) {
 		if (size == items.length) {
+			System.out.println("Resizing array from " + items.length + " to " + (items.length * 2));
 			Object[] newItems = new Object[items.length * 2];
 			for (int i = 0; i < items.length; i++) {
 				newItems[i] = items[i];
