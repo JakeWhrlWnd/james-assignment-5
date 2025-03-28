@@ -29,7 +29,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return counter;
 	}
 
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public T get(int index) {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException("Oops, looks like the index: " + index + " is out of bounds for the " +
